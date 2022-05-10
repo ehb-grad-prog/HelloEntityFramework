@@ -2,6 +2,7 @@
 using HelloEntityFramework.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace HelloEntityFramework.Controllers;
 public class HomeController : Controller
@@ -18,8 +19,6 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var user = UserRepository.FindById(1);
-
         return View();
     }
 

@@ -1,10 +1,19 @@
 using HelloEntityFramework.Data;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddControllersWithViews()
+    .AddMvcLocalization();
+builder.Services.AddRequestLocalization(options =>
+{
+    options.AddSupportedCultures("en-US", "nl", "fr");
+    options.AddSupportedUICultures("en-US", "nl", "fr");
+});
+
 builder.Services.AddDbContext<HelloEntityFrameworkContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
@@ -25,6 +34,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseRequestLocalization();
 
 app.UseAuthorization();
 
