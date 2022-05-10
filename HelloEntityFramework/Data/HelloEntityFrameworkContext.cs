@@ -12,4 +12,9 @@ public class HelloEntityFrameworkContext : DbContext
     {
         //
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+
+    }
 }

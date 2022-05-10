@@ -9,6 +9,7 @@ builder.Services.AddDbContext<HelloEntityFrameworkContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+builder.Services.AddScoped<UserRepository>();
 
 var app = builder.Build();
 
