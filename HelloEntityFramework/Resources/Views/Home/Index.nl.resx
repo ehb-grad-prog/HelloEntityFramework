@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="I have apples {0}" xml:space="preserve">
+    <value>Ik heb {0} appelen</value>
+  </data>
 </root>

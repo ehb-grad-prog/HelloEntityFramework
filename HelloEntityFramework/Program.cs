@@ -1,13 +1,18 @@
 using HelloEntityFramework.Data;
-using Microsoft.AspNetCore.Mvc.Razor;
+using HelloEntityFramework.Localizers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddControllersWithViews()
-    .AddMvcLocalization();
+    .AddMvcLocalization()
+    .AddDataAnnotationsLocalization();
+
+builder.Services.AddSingleton<DatabaseStringLocalizerFactory>();
+builder.Services.AddSingleton<IStringLocalizerFactory>(provider => provider.GetRequiredService<DatabaseStringLocalizerFactory>());
 builder.Services.AddRequestLocalization(options =>
 {
     options.AddSupportedCultures("en-US", "nl", "fr");

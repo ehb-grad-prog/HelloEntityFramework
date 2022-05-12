@@ -3,6 +3,7 @@ using HelloEntityFramework.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HelloEntityFramework.Migrations
 {
     [DbContext(typeof(HelloEntityFrameworkContext))]
-    partial class HelloEntityFrameworkContextModelSnapshot : ModelSnapshot
+    [Migration("20220512161125_AddTranslations")]
+    partial class AddTranslations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

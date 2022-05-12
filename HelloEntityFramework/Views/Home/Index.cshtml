@@ -5,7 +5,11 @@
 }
 
 <div class="text-center">
-    @Localizer["I have apples {0}", 20]
+    @Localizer["Hello"]
 </div>
+
+<form asp-controller="Home" asp-action="Update">
+    <button>Update!</button>
+</form>
 
 @System.Globalization.CultureInfo.CurrentCulture.DisplayName

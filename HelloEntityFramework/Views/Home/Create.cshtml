@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model CreateTranslationModel
+@inject IViewLocalizer Localizer
+
+<form asp-controller="Home" asp-action="Create" style="display: flex; flex-direction: column">
+    <input asp-for="Key" />
+    <span asp-validation-for="Key"></span>
+    <input asp-for="Value" />
+    <span asp-validation-for="Value"></span>
+    <input asp-for="Language" />
+    <span asp-validation-for="Language"></span>
+
+    <button>@Localizer["TID_HOME_CREATE_BUTTON_CREATE"]</button>
+</form>
